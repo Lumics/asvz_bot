@@ -62,7 +62,7 @@ def asvz_enroll():
 
     try:
         driver.get(sportfahrplan_particular)
-        driver.implicitly_wait(20) #wait 20 seconds if not defined differently
+        driver.implicitly_wait(10) #wait 10 seconds if not defined differently
         print("Headless Chrome Initialized")
         #find corresponding day div:
         day_ele = driver.find_element_by_xpath("//div[@class='teaser-list-calendar__day'][contains(., '" + day + "')]")
@@ -104,13 +104,13 @@ success = False
 
 waiting_fct()
 
-#if there is an exception (no registration possible), enrollment is tried again in total 5 times and then stopped to avoid a lock-out
+#if there is an exception (no registration possible), enrollment is tried again in total 3 times and then stopped to avoid a lock-out
 while not success:
     try:
         success = asvz_enroll()
         print("Script successfully finished")
     except:
-        if i<1:
+        if i<2:
             i += 1
             print("Enrollment failed. Start try number {}".format(i+1))
             pass
