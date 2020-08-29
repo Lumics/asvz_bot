@@ -2,10 +2,13 @@
 
 """
 Based on initial script of Julian Stiefel but changed to work with Chromium and therefore can be used with a Raspi
-Created on: August 29, 2020
-Author: Maurin Widmer
+Initally Created on: Mar 20, 2019
+Author: Julian Stiefel
 License: BSD 3-Clause
 Description: Script for automatic enrollment in ASVZ classes
+
+Updated Version on: August 29, 2020
+Author: Maurin Widmer
 """
 
 ############################# Edit this: ######################################
