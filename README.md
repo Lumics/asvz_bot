@@ -5,17 +5,17 @@ This is a simple ASVZ (Akademischer Sportverband Zürich) enrollment script for 
 
 Full instructions to set it up for automatic weekly enrollment are given below.
 
-Works on the current version of the ASVZ website as of March 2019.
+Works on the current version of the ASVZ website as of August 2020.
 
 ## Installation
 
-These instructions are for Ubuntu. It was tested on Ubuntu 16.04, Python 3.5.2 and Firefox 65.0 with corresponding Geckodriver v0.24.0. Adapt to your own system if necessary.
+These instructions are for Raspi 4. 
 
 Clone this repository:
 
 ```
 cd
-git clone https://github.com/jstiefel/asvz_bot.git
+git clone https://github.com/Lumics/asvz_bot
 ```
 
 Set up new virtual environment with venv:
@@ -26,18 +26,12 @@ python3 -m venv ~/asvz_bot_python
 source asvz_bot_python/bin/activate
 ```
 
-Install Selenium and Firefox webdriver:
+Install Selenium and Chromium webdriver:
 
 ```
 pip install --upgrade pip
-pip install selenium
-cd Downloads
-wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
-tar -xvzf geckodriver*
-chmod +x geckodriver
-sudo mv geckodriver /usr/local/bin/
-rm geckodriver-v0.24.0-linux64.tar.gz
-deactivate
+sudo apt install chromium-chromedriver
+pip3 install selenium
 ```
 
 ## Run
@@ -77,7 +71,7 @@ SHELL=/bin/bash
 # PATH variable for cron
 PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/bin/X11
 # 
-# m h  dom mon dow   command
-30 21 * * 3 /home/<user>/asvz_bot_python/bin/python /home/<user>/asvz_bot/asvz_bot.py > /home/<user>/asvz_bot/asvz.log 2>&1
+# m h  dom mon dow   command replace "pi" with your user name
+30 21 * * 3 /home/pi/asvz_bot_python/bin/python /home/pi/asvz_bot/asvz_bot.py > /home/pi/asvz_bot/asvz.log 2>&1
 ```
 
