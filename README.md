@@ -31,7 +31,7 @@ Install Selenium and Chromium webdriver:
 ```
 pip install --upgrade pip
 sudo apt install chromium-chromedriver
-pip3 install selenium
+pip install selenium
 ```
 
 ## Run

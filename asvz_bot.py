@@ -70,14 +70,13 @@ def asvz_enroll():
         day_ele.find_element_by_xpath(".//li[@class='btn-hover-parent'][contains(., '" + facility + "')][contains(., '" + lesson_time + "')]").click()
 
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='btn btn--block btn--icon relative btn--primary']"))).send_keys(Keys.ENTER)
-        print("bunker1")
+        print("Entering new tab now with login")
         #switch to new window:
         time.sleep(2) #necessary because tab needs to be open to get window handles
         tabs = driver.window_handles
         driver.switch_to.window(tabs[-1])
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='btn btn-default ng-star-inserted' and @title='Login']"))).click()
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='btn btn-warning btn-block' and @title='SwitchAai Account Login']"))).click()
-        print("bunker2")
         #choose organization:
         organization = driver.find_element_by_xpath("//input[@id='userIdPSelection_iddtext']")
         organization.send_keys('ETH Zurich')
@@ -86,6 +85,7 @@ def asvz_enroll():
         driver.find_element_by_xpath("//input[@id='username']").send_keys(username)
         driver.find_element_by_xpath("//input[@id='password']").send_keys(password)
         driver.find_element_by_xpath("//button[@type='submit']").click()
+        print("Submitted Login Credentials")
 
         #wait for button to be clickable for 5 minutes, which is more than enough
         #still needs to be tested what happens if we are on the page before button is enabled
